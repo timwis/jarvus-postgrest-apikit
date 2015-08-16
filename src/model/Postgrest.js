@@ -44,6 +44,7 @@ Ext.define('Jarvus.model.Postgrest', {
                 method: 'OPTIONS',
                 url: tableUrl,
                 success: function(response) {
+                    response.data = Ext.decode(response.responseText, true);
                     var columns = response.data.columns,
                         columnsLength = columns.length, columnIndex = 0, column, columnName, field, fieldConfig,
                         fields = [];
